@@ -12,15 +12,18 @@ public class NextGreaterInteger {
 
     private static int nextGreater(int num) {
 
+        // array is created
         char[] digits = String.valueOf(num).toCharArray();
 
+        // i is defined
         int i = digits.length - 2;
 
+        //while loop
         while(i>=0 && digits[i]>=digits[i+1])
         {
             i--;
         }
-        if(i == -1)
+        if(i == -1) // breaker is not found
             return num;
 
         int j = digits.length-1;
