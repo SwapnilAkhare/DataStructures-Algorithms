@@ -13,7 +13,9 @@ package Array;
 
 //   TIME  COMPLEXITY  O(N^);
 
-    public class SumArray {
+import java.util.Arrays;
+
+public class SumArray {
 
         //Naive MEthod to find a pair in an array with given sum in it
         public static void findPair(int[] A, int Sum)
@@ -43,7 +45,41 @@ package Array;
 
         }
 
+            // TIME COMPLEXITY NLOG(N)
+        public static void findPairSort(int[] A,int Sum )
+        {
+            // sort method of array to sort array in ascending order
+            Arrays.sort(A);
 
+            // maintain two indices pointing to start and endpoint array
+            int Start = 0 ;
+            int End  = A.length -1 ;
+
+            //reduce the search space A[Start..End] at each iteration of loop
+            // loop till the search space is exausted
+            while( Start <= End)
+            {
+                if(A[Start] + A[End] == Sum)
+                {
+                    // Sum Found
+                    System.out.println("pair is Found at index " + Start + " and " + End);
+                    return;
+                }
+                 // increment "Start" if the total is less than desired Sum
+                // Decrement "End" if the total is more than desired sum
+
+                if(A[Start] + A[End] < Sum)
+                {
+                    Start++;
+
+                }else {
+                    End--;
+                }
+
+            }
+            System.out.println("pair not found");
+
+        }
 
         public static void main(String[] args) {
 
@@ -54,10 +90,10 @@ package Array;
             // given sum
             int Sum= 10;
 
-            // create function to find pair
+            // create function to find pair with O(n^) complexity
             findPair(A,Sum) ;
-
-
+            // create  function to find pair with nlog(n) complexity(Sorting)
+            findPairSort(A,Sum);
         }
     }
 
