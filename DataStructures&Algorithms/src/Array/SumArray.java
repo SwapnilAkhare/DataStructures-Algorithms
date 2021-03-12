@@ -13,7 +13,7 @@ package Array;
 
 //   TIME  COMPLEXITY  O(N^);
 
-import java.util.Arrays;
+import java.util.*;
 
 public class SumArray {
 
@@ -81,11 +81,40 @@ public class SumArray {
 
         }
 
+
+
+           // TIME COMPLEXITY O(N)
+
+        public static void findPairHashing(int[] A,int Sum){
+
+          // create an empty hashmap
+            HashMap<Integer,Integer> s = new HashMap<>() ;
+
+            // do for each elment
+            for(int i=0; i < A.length; i++){
+
+                // check if pair (A[i], sum  -  A[i]) exxist
+                // if the difference is seen before then print the pair
+
+                if(s.containsKey(Sum - A[i])){
+                    
+                    System.out.println("the pair at index" +s.get(Sum - A[i]) + " and " + i);
+                    return;
+                }
+
+                // store index of current element in map
+                s.put(A[i],i);
+            }
+                  //  we reach here if pair is not found
+            System.out.println(" pair not found");
+
+        }
+
         public static void main(String[] args) {
 
 
             // given array
-            int[] A = {12,3,5,1,9};
+            int[] A = {3,12,5,1,9};
 
             // given sum
             int Sum= 10;
@@ -94,6 +123,9 @@ public class SumArray {
             findPair(A,Sum) ;
             // create  function to find pair with nlog(n) complexity(Sorting)
             findPairSort(A,Sum);
+
+            // create function to find pair with O(n) complexity(Hashing)
+            findPairHashing(A,Sum);
         }
     }
 
