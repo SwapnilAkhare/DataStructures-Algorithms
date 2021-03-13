@@ -11,7 +11,7 @@ public class zeroSumArray {
  // TIME COMPLEXITY O(N^2)
 // function to check subarray with zero sum with O(n^2) COMPLEXITY
     public static void checkArrayBruteForce(int[] A){
-
+ int count = 0;
         //traverse i from start to end
         for(int i = 0; i < A.length;i++){
 
@@ -23,7 +23,10 @@ public class zeroSumArray {
 
                         // if thre sum is found before we have found thre array
                 if(sum == 0) {
-                    System.out.println("subarray"+i + ".." + j);
+
+                    System.out.println("subarray["+i + ".." + j +"]");
+                    count++;
+                    System.out.println("count is " +count);
                 }
             }
         }
@@ -38,10 +41,6 @@ public class zeroSumArray {
         // cretate an empty set to store sum of each
 
         Set<Integer> s = new HashSet<>();
-
-        // insert zero to set to handle the subarray when with zero sum starting from index zer
-
-          s.add(0);
 
           int sum = 0;
 
