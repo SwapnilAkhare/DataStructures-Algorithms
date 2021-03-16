@@ -6,7 +6,7 @@ package Backtracking;
  public class NqueenProb{
 
      // number of queens
-               int N;
+     int N;
 
      // constructor to initialize N
      public NqueenProb(int N) {
@@ -17,7 +17,10 @@ package Backtracking;
      public boolean queenProblem() {
 
          // create solution  matrix of N*N
-         int[][] sol = new int[N][N];
+         int[][] sol = {{0,0,0,0},
+                        {0,0,0,0},
+                        {0,0,0,0},
+                        {0,0,0,0}} ;
          
          // now i call utility problem that whether there is solution or not
          // we are passing 0th column and sol matrix
@@ -104,11 +107,11 @@ package Backtracking;
          }
 
          // here we are printing the path for sol i.e printing matrix of sol
-         private void printQueenPlacement(int [][] mat) {
+         private void printQueenPlacement(int [][] sol) {
 
              for ( int i = 0; i < N; i++) {
                  for ( int j = 0; j < N; j++) {
-                     System.out.println(mat[i][j] + " ");
+                     System.out.println( " "   +sol[i][j] + " ");
                  }
                  System.out.println();
              }
