@@ -1,7 +1,8 @@
 
 // print semicolon without using semicolon ?
 // the idea here is to use Ascii value of semicolon which is 59
-
+//The main logic here is as printf() returns PrintStream object which is not null
+// so on comparison it with null (literal in Java) we will get our desired output.
 package Puzzle;
 
 public class SemicolonWithoutSemicolon {
