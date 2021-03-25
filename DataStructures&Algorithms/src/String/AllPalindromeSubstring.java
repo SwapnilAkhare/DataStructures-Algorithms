@@ -31,21 +31,22 @@ public class AllPalindromeSubstring {
 
     }
     // func to find all unique palindromic substring
-    public static void allPalindromicSubString(String s){
+    public static void allPalindromicSubString(String s) {
 
         // create an empty set to store substring
         Set<String> set = new HashSet<>();
-
-        for(int i=0; i <s.length();i++){
+        for (int i = 0; i < s.length(); i++) {
 
             // find all odd length palindrom with s[i] as midpoint
-            expand(s,i,i,set);
+            expand(s, i, i, set);
 
             //find all even length palindrom with s[i] and s[i+1]
-            expand(s,i,i+1,set);
+            expand(s, i, i + 1, set);
+
         }
         // print set
         System.out.println(set);
+
     }
 
 
