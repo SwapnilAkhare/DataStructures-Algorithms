@@ -74,6 +74,62 @@ public class SingleLinklist {
         last.next = new_node; // when head point to  null point that null to new node
         return;
     }
+      // DELETE A NODE .....
+     //step 1 - find the previos element of the element which we want to delete
+    // step 2 - change the previous node to point to neext node
+    // step 3 - free the node which we want to delete
+
+    void deleteNode(int key) {
+
+        Node temp = head, prev = null;
+
+        // now if head is to be deleted
+
+        if (temp != null && temp.data == key) {
+
+            head = temp.next;  // so now temp.next i.e next which head pointed is now become head
+
+            return;
+        }
+
+        // if head is not to be deleted then we have to dearch that elemenet that needs to be deleted
+
+        while (temp != null && temp.data != key) {
+
+            prev = temp; // prev will be
+
+            temp = temp.next;  // update the temp value i.e search the element one by one
+
+        }
+
+        // key is not present
+
+        if (temp != null) {
+
+            return;
+        }
+        prev.next = temp.next;
+    }
+
+    // delete the entire linked list
+
+    void deletion(){
+
+        head = null ;  // since there is no way to reference java will do entire thing and clean it
+
+    }
+
+    // count all node present in liked list recursuive way
+
+    public int getNodeCount(Node node) {
+
+        if (node == null) {
+
+            return 0;
+        }
+        return 1 + getNodeCount(node.next); // recursive call
+    }
+
 
     // for traverse and print the list to display
 
@@ -87,15 +143,17 @@ public class SingleLinklist {
 
                     mynode = mynode.next ;
         }
+        System.out.print("null");
     }
-
     public static void main(String [] args)
     {
         SingleLinklist  list = new SingleLinklist();
 
       list.append(5);
        list.push(6);
+       list.append(8);
+       list.append(269);
+      list.deleteNode(6);
       list.printlist();
-
 }
 }
