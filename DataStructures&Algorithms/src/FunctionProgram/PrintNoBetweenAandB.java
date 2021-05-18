@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class PrintNoBetweenAandB {
   public static boolean isPrime(int num){
 
-        for(int i=2;i<=num;i++) {
+        for(int i=2;i<num;i++) {
             if (num % i == 0) {
                 return false;
             }
