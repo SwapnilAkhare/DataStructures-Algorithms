@@ -12,13 +12,17 @@ public class UserInputArray {
 
         int[] arr=new int[size];  // array declarartion in c/cpp is.. int arr[]
 
-        for(int i=0;i<size;i++){
+        for(int i=0;i<size;i++) {
 
-            arr[i]=sc.nextInt(); // read input from user
+            arr[i] = sc.nextInt(); // read input from user
+        }
 
+        // print the user array
+        for(int i=0;i<size;i++) {
             System.out.print(arr[i]);
 
             System.out.print(" ");
+
         }
     }
 }
